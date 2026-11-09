@@ -1,0 +1,278 @@
+@import "tailwindcss";
+
+/* ===== ثيم داكن تقني — بنفسجي/سماوي ===== */
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+}
+
+:root {
+  --radius: 0.75rem;
+  --background: #070b14;
+  --foreground: #e6eaf2;
+  --card: #0c1220;
+  --card-foreground: #e6eaf2;
+  --popover: #0c1220;
+  --popover-foreground: #e6eaf2;
+  --primary: #8b5cf6;
+  --primary-foreground: #ffffff;
+  --secondary: rgba(255, 255, 255, 0.06);
+  --secondary-foreground: #e6eaf2;
+  --muted: rgba(255, 255, 255, 0.05);
+  --muted-foreground: #94a3b8;
+  --accent: rgba(139, 92, 246, 0.14);
+  --accent-foreground: #ddd0ff;
+  --destructive: #ef4444;
+  --border: rgba(255, 255, 255, 0.09);
+  --input: rgba(255, 255, 255, 0.09);
+  --ring: rgba(139, 92, 246, 0.55);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: "Cairo", "Segoe UI", Tahoma, system-ui, -apple-system, sans-serif;
+  background-color: var(--background);
+  color: var(--foreground);
+  text-rendering: optimizeLegibility;
+}
+
+/* توهجات الخلفية الثابتة */
+.page-glow {
+  background:
+    radial-gradient(640px 420px at 88% -60px, rgba(139, 92, 246, 0.17), transparent 62%),
+    radial-gradient(760px 520px at -10% 18%, rgba(34, 211, 238, 0.09), transparent 62%),
+    radial-gradient(980px 640px at 50% 112%, rgba(168, 85, 247, 0.09), transparent 65%);
+}
+
+/* شبكة خافتة أعلى الصفحة */
+.page-grid {
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.033) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.033) 1px, transparent 1px);
+  background-size: 44px 44px;
+  -webkit-mask-image: radial-gradient(ellipse 85% 55% at 50% 0%, black 25%, transparent 72%);
+  mask-image: radial-gradient(ellipse 85% 55% at 50% 0%, black 25%, transparent 72%);
+}
+
+/* بطاقة القسم */
+.prompt-card {
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: rgba(255, 255, 255, 0.024);
+  border-radius: 1.25rem;
+  padding: 1.4rem;
+  margin-bottom: 1.5rem;
+  box-shadow: inset 0 1px 0 0 rgba(255, 255, 255, 0.04);
+}
+@media (min-width: 640px) {
+  .prompt-card {
+    padding: 1.9rem;
+  }
+}
+
+/* ===== تنسيق الماركداون ===== */
+.md-body {
+  font-size: 0.975rem;
+  line-height: 2;
+  color: #cbd5e1;
+  overflow-wrap: break-word;
+}
+.md-body > :first-child {
+  margin-top: 0;
+}
+.md-body p {
+  margin: 0.65rem 0;
+}
+.md-body strong {
+  color: #f1f5f9;
+  font-weight: 700;
+}
+.md-body h1 {
+  font-size: 1.55rem;
+  font-weight: 800;
+  color: #ffffff;
+  margin: 1.2rem 0 0.45rem;
+  line-height: 1.55;
+}
+.md-body h2 {
+  font-size: 1.25rem;
+  font-weight: 800;
+  color: #ffffff;
+  margin: 1.3rem 0 0.5rem;
+}
+.md-body h3 {
+  font-size: 1.06rem;
+  font-weight: 700;
+  color: #c4b5fd;
+  margin: 1.15rem 0 0.35rem;
+}
+.md-body h4 {
+  font-size: 1rem;
+  font-weight: 700;
+  color: #e2e8f0;
+  margin: 1rem 0 0.3rem;
+}
+.md-body ul,
+.md-body ol {
+  padding-inline-start: 1.35rem;
+  margin: 0.6rem 0;
+}
+.md-body ul {
+  list-style: disc;
+}
+.md-body ol {
+  list-style: decimal;
+}
+.md-body li {
+  margin: 0.4rem 0;
+}
+.md-body li::marker {
+  color: #8b5cf6;
+}
+.md-body li > ul,
+.md-body li > ol {
+  margin: 0.35rem 0;
+}
+.md-body blockquote {
+  border-inline-start: 3px solid #22d3ee;
+  background: rgba(34, 211, 238, 0.07);
+  border-radius: 0.8rem;
+  padding: 0.9rem 1.15rem;
+  margin: 1rem 0;
+  color: #a5f3fc;
+}
+.md-body blockquote strong {
+  color: #ecfeff;
+}
+.md-body hr {
+  border: 0;
+  height: 1px;
+  background: linear-gradient(to left, transparent, rgba(255, 255, 255, 0.16), transparent);
+  margin: 1.4rem 0;
+}
+.md-body a {
+  color: #67e8f9;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+/* الكود المضمن */
+.md-body code {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, "Liberation Mono", monospace;
+  font-size: 0.84em;
+  direction: ltr;
+  unicode-bidi: isolate;
+}
+.md-body :not(pre) > code {
+  background: rgba(139, 92, 246, 0.14);
+  border: 1px solid rgba(139, 92, 246, 0.24);
+  color: #ddd6fe;
+  padding: 0.08rem 0.42rem;
+  border-radius: 0.42rem;
+  overflow-wrap: anywhere;
+}
+
+/* كتل الكود — اتجاه LTR دائمًا */
+.md-body pre {
+  direction: ltr;
+  text-align: left;
+  background: #090e1a;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 0.9rem;
+  padding: 1rem 1.15rem;
+  overflow-x: auto;
+  margin: 1rem 0;
+  font-size: 0.8rem;
+  line-height: 1.75;
+}
+.md-body pre code {
+  background: none;
+  border: none;
+  padding: 0;
+  color: #b9e2fb;
+  white-space: pre;
+}
+
+/* الجداول — حاوية تمرير أفقي مع تساوي الصفوف */
+.md-table-scroll {
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  margin: 1rem 0;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 0.9rem;
+}
+.md-body table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.87rem;
+  line-height: 1.8;
+  margin: 0;
+}
+.md-body th,
+.md-body td {
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 0.55rem 0.8rem;
+  text-align: start;
+  vertical-align: top;
+  min-width: 8.5rem;
+}
+.md-body thead th {
+  background: rgba(139, 92, 246, 0.13);
+  color: #ede9fe;
+  font-weight: 700;
+  white-space: nowrap;
+}
+.md-body tbody tr:nth-child(even) {
+  background: rgba(255, 255, 255, 0.025);
+}
+/* منع تقطيع الرموز التقنية داخل خلايا الجداول */
+.md-body th code,
+.md-body td code {
+  overflow-wrap: normal;
+  white-space: nowrap;
+}
+
+/* أشرطة التمرير */
+::-webkit-scrollbar {
+  height: 8px;
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(139, 92, 246, 0.35);
+  border-radius: 8px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(139, 92, 246, 0.55);
+}
+::selection {
+  background: rgba(139, 92, 246, 0.5);
+  color: #ffffff;
+}
+
+/* نمط داكن تقني — بنفسجي وسماوي */
+

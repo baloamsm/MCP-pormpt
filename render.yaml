@@ -1,0 +1,22 @@
+# Render Blueprint — MCP Media Generator
+# Docs: https://render.com/docs/blueprint-spec
+#
+# Deploy with one click:
+#   1. Push this repo to GitHub (done).
+#   2. On Render Dashboard -> New + -> Blueprint -> pick this repo.
+#   3. Render reads this file and creates the service automatically.
+#
+# Or create a Web Service manually with the same settings:
+#   Runtime: Bun  (detected automatically from bun.lock)
+#   Build:   bun install && bun run build
+#   Start:   bun run start
+
+services:
+  - type: web
+    name: mcp-media-generator
+    runtime: bun
+    plan: free
+    buildCommand: bun install && bun run build
+    startCommand: bun run start
+    healthCheckPath: /
+    autoDeploy: true
