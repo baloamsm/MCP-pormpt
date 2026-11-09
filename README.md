@@ -48,33 +48,25 @@ bun run build
 bun run start
 ```
 
-## ☁️ النشر على render.com
+## ☁️ النشر على GitHub Pages (مجاني للأبد — بدون بطاقة) ✅
 
-### الطريقة الأولى: Blueprint (الأسهل — ملف جاهز) ✅
+المشروع مبني بحيث ينشر كـ **Static Export** على GitHub Pages تلقائياً:
 
-المستودع يحتوي على ملف [`render.yaml`](./render.yaml) جاهز:
+- كل `push` على فرع `main` يشغّل [.github/workflows/deploy.yml](./.github/workflows/deploy.yml) الذي يبني الموقع وينشره
+- الرابط المباشر: **https://baloamsm.github.io/MCP-pormpt/**
 
-1. ادخل على [dashboard.render.com](https://dashboard.render.com)
-2. **New +** ← **Blueprint**
-3. اختر هذا المستودع `MCP-pormpt`
-4. اضغط **Apply** — Render هيبني ويشغّل الموقع تلقائياً 🎉
+> **تفعيل لمرة واحدة (لو مش مفعّل):** إعدادات المستودع ← **Pages** ← **Source** ← اختر **GitHub Actions**.
 
-### الطريقة الثانية: Web Service يدوياً
+**آلية العمل:** عند ضبط `NEXT_PUBLIC_BASE_PATH=/MCP-pormpt` يتحول البناء إلى Static Export (مجلد `out/`) مع `basePath` صحيح لمواقع المشاريع. بدون المتغير، يبني الوضع العادي (`standalone`) للتشغيل كخادم — فالوضعان لا يتعارضان.
 
-1. **New +** ← **Web Service** واختر المستودع
-2. الإعدادات:
+## 🖥️ بديل: النشر على render.com
 
-| الإعداد | القيمة |
-|---|---|
-| **Runtime** | `Bun` (يتعرّف عليه تلقائياً من `bun.lock`) |
-| **Build Command** | `bun install && bun run build` |
-| **Start Command** | `bun run start` |
-| **Plan** | Free |
+يعمل أيضاً كخادم عادي (يوجد [`render.yaml`](./render.yaml) جاهز لـ Blueprint و[`Dockerfile`](./Dockerfile) كبديل):
 
-3. اضغط **Create Web Service**
+1. **New +** ← **Blueprint** ← اختر المستودع ← **Apply**
+2. أو يدوياً: Runtime `Bun` · Build `bun install && bun run build` · Start `bun run start`
 
-> لا يحتاج أي متغيرات بيئة — الموقع لا يستخدم قواعد بيانات.
-> الخطة المجانية على Render تدعم Bun وأيضاً Docker (يوجد [`Dockerfile`](./Dockerfile) جاهز كبديل).
+> ملاحظة: Render يطلب بطاقة للتحقق حتى في الخطة المجانية، لذلك GitHub Pages هو الخيار المعتمد هنا.
 
 ## 📄 الترخيص
 

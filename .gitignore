@@ -64,3 +64,7 @@ download/
 upload/
 agent-ctx/
 *.pid
+
+# GitHub Actions workflow — جاهز محلياً؛ للرفع يلزم توكن بصلاحية workflow
+# البديل الحالي: فرع gh-pages عبر scripts/deploy-gh-pages.sh
+.github/

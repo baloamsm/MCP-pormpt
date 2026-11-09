@@ -13,7 +13,9 @@ export const metadata: Metadata = {
     "توليد صور",
     "توليد فيديو",
   ],
-  icons: { icon: "/favicon.svg" },
+  icons: {
+    icon: `${process.env.NEXT_PUBLIC_BASE_PATH ?? ""}/favicon.svg`,
+  },
 };
 
 export const viewport: Viewport = {

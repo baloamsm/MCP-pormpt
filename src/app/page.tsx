@@ -120,7 +120,7 @@ export default function Home() {
               className="w-full sm:w-auto"
             />
             <a
-              href="/prompt.md"
+              href={`${process.env.NEXT_PUBLIC_BASE_PATH ?? ""}/prompt.md`}
               download="mcp-media-generator-prompt.md"
               className="inline-flex w-full select-none items-center justify-center gap-2 rounded-2xl border border-white/15 bg-white/5 px-6 py-3.5 text-base font-bold text-slate-200 transition-all hover:border-white/25 hover:bg-white/10 active:scale-[0.98] sm:w-auto"
             >
